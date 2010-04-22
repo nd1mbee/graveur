@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
+<!--Generated with glade3 3.4.5 on Fri Apr 17 14:14:28 2009 -->
+<glade-interface>
+  <widget class="GtkWindow" id="lb">
+    <property name="width_request">400</property>
+    <property name="height_request">100</property>
+    <property name="visible">True</property>
+    <property name="title" translatable="yes">Linux Burner - 1.00</property>
+    <property name="modal">True</property>
+    <property name="window_position">GTK_WIN_POS_CENTER</property>
+    <property name="default_width">1024</property>
+    <property name="default_height">770</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="icon">tux.ico</property>
+    <property name="skip_pager_hint">True</property>
+    <property name="urgency_hint">True</property>
+    <property name="opacity">0.050000000000000003</property>
+    <signal name="destroy" handler="on_lb_destroy"/>
+    <child>
+      <widget class="GtkVBox" id="main">
+        <property name="visible">True</property>
+        <child>
+          <widget class="GtkVBox" id="vbox1">
+            <property name="visible">True</property>
+            <child>
+              <widget class="GtkFrame" id="Bienvenue sur le graveur Linux">
+                <property name="visible">True</property>
+                <property name="label_xalign">0</property>
+                <property name="shadow_type">GTK_SHADOW_OUT</property>
+                <child>
+                  <widget class="GtkAlignment" id="alignment1">
+                    <property name="visible">True</property>
+                    <property name="left_padding">12</property>
+                    <child>
+                      <widget class="GtkLabel" id="entete">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Pour commencer, selectionnez la distribution que vous desirez graver, vous allez voir la description de la distribution dans 
+la partie droite de la fênetre. Une fois la distribution choisie introduisez votre CD dans le graveur et appuyer sur &lt;b&gt;Graver&lt;/b&gt;.
+La gravure commencere automatiquement et le CD sera ejecté quand le processus aura fini</property>
+                        <property name="use_markup">True</property>
+                        <property name="mnemonic_widget">alignment1</property>
+                      </widget>
+                    </child>
+                  </widget>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label1">
+                    <property name="visible">True</property>
+                    <property name="xpad">3</property>
+                    <property name="label" translatable="yes">&lt;b&gt;Bienvenue sur le graveur des cédéroms Linux&lt;/b&gt;</property>
+                    <property name="use_markup">True</property>
+                  </widget>
+                  <packing>
+                    <property name="type">label_item</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkHBox" id="hbox1">
+                <property name="height_request">550</property>
+                <property name="visible">True</property>
+                <property name="homogeneous">True</property>
+                <child>
+                  <widget class="GtkTable" id="table1">
+                    <property name="visible">True</property>
+                    <property name="n_columns">2</property>
+                    <property name="column_spacing">2</property>
+                    <child>
+                      <widget class="GtkFrame" id="details">
+                        <property name="visible">True</property>
+                        <property name="label_xalign">0.0099999997764825821</property>
+                        <property name="shadow_type">GTK_SHADOW_OUT</property>
+                        <child>
+                          <widget class="GtkLabel" id="distInfo">
+                            <property name="visible">True</property>
+                            <property name="xalign">0.019999999552965164</property>
+                            <property name="yalign">0.0099999997764825821</property>
+                            <property name="label" translatable="yes">Sélectionnez une distribution pour voir les détails</property>
+                            <property name="use_markup">True</property>
+                            <property name="wrap">True</property>
+                            <property name="width_chars">45</property>
+                            <property name="max_width_chars">0</property>
+                          </widget>
+                        </child>
+                        <child>
+                          <widget class="GtkLabel" id="label2">
+                            <property name="visible">True</property>
+                            <property name="label" translatable="yes">&lt;b&gt;Détails&lt;/b&gt;</property>
+                            <property name="use_markup">True</property>
+                          </widget>
+                          <packing>
+                            <property name="type">label_item</property>
+                          </packing>
+                        </child>
+                      </widget>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="right_attach">2</property>
+                        <property name="x_padding">3</property>
+                        <property name="y_padding">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="GtkFrame" id="distributions">
+                        <property name="visible">True</property>
+                        <property name="label_xalign">0.0099999997764825821</property>
+                        <property name="shadow_type">GTK_SHADOW_OUT</property>
+                        <child>
+                          <widget class="GtkCList" id="isoList">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_STRUCTURE_MASK</property>
+                            <property name="n_columns">1</property>
+                            <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
+                            <property name="selection_mode">GTK_SELECTION_SINGLE</property>
+                            <property name="row_height">23</property>
+                            <property name="titles_active">True</property>
+                            <signal name="unselect_row" handler="on_isoList_unselect_row"/>
+                            <signal name="select_row" handler="on_isoList_select_row"/>
+                          </widget>
+                        </child>
+                        <child>
+                          <widget class="GtkLabel" id="label3">
+                            <property name="visible">True</property>
+                            <property name="label" translatable="yes">&lt;b&gt;Images&lt;/b&gt;</property>
+                            <property name="use_markup">True</property>
+                          </widget>
+                          <packing>
+                            <property name="type">label_item</property>
+                          </packing>
+                        </child>
+                      </widget>
+                      <packing>
+                        <property name="y_options">GTK_EXPAND | GTK_SHRINK | GTK_FILL</property>
+                        <property name="y_padding">2</property>
+                      </packing>
+                    </child>
+                  </widget>
+                </child>
+              </widget>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkProgressBar" id="progression">
+                <property name="visible">True</property>
+                <property name="pulse_step">0</property>
+                <property name="text" translatable="yes">En attente...</property>
+                <property name="ellipsize">PANGO_ELLIPSIZE_MIDDLE</property>
+                <property name="discrete_blocks">2</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </widget>
+        </child>
+        <child>
+          <widget class="GtkHButtonBox" id="hbuttonbox1">
+            <property name="visible">True</property>
+            <property name="spacing">100</property>
+            <property name="homogeneous">True</property>
+            <property name="layout_style">GTK_BUTTONBOX_CENTER</property>
+            <child>
+              <widget class="GtkButton" id="graver">
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="label" translatable="yes">Ouvrir CD-Rom</property>
+                <property name="use_underline">True</property>
+                <property name="response_id">0</property>
+                <signal name="clicked" handler="on_graver_clicked"/>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="padding">5</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>
