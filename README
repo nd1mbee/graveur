@@ -1,3 +1,28 @@
-GRAVEUR de CD ubuntu/Debian
+GRAVEUR de CD ubuntu/Debian créé par Serghei Mihai 
 
-créer par Serghei Mihai 
+Donc l'application est divisée en trois parties:
+
+- "graveur.glade" - le fichier Glade avec l'interface "désinée"
+- "config.py" - des configurations comme les chemins vers les images, l'extension de fichiers d'information, etc
+- "test.py" - le programme Python
+
+La partie principale est évidemment le programme lui-même.
+Il est organisé dans une classe(ça sert pas à grand chose, vue que c'est un seul programme qui n'interactionne avec d'autres, mais je suis parti du principe "orienté objet"). Alors la classe LB(Linux Burner) contient tout, à la fin il reste qu'a instancier l'objet et c'est tout
+
+Alors la classe (y la doc dedans, mais je vais spécifier ici aussi un p'tit peu ):
+
+- init: Crée la fenêtre graphique, associe les signaux définis dans le fichier glade et appelle la méthode getDistrosList
+- ouvrirCdrom: le nom parle pour soi
+- desactiverButton: désactive le button "Graver/OuvrirCDrom" dans le cas ou aucune image n'est sélectionnée
+- getFileTitle: vérifie s'il existe un fichier de description pour l'image sélectionnée et renvoie la première ligne en tant que "titre" de l'image, sinon, renvoie le nom de l'image
+- getDistrosList: parcours le répertoire des images et les ajoute à la liste graphique de l'application
+- getDistInfo: appelé au clique sur une image dans la liste, affiche le contenu du fichier descriptif dans la zone d'information(à droite)
+- graver: lance dans un nouveau thread la methode graverDist, car en lancement direct l'application "freeze" temps que la gravure soit terminée, et permet pas de "bouger" la barre de progression
+- graverDist: lance la gravure. Wodim est utilisé pour graver l'image. La sortie erreur est captée et affichée sur l'écran. A la fin de gravure, appele reinit
+- reinit: reinitialise l'application après la gravure(ferme le cdrom, désactive le bouton, desélectionne l'image précédemment sélectionnée dans la liste)
+
+Le démarrage se fait un peu bizarrement, mais c'est tout ce que j'ai pu faire pour le moment: dans le inittab j'ai mis: 1:2345:respawn:/home/kiosk/graveur/start.
+
+Le fichier /home/kiosk/graveur/start démarre juste le serveur X. Après, dans le .xinitrc de root(/root/.xinitrc) je lance le programme Python
+
+Pas très grande philosophie, ni grande ingéniosité...
